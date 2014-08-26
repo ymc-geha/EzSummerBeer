@@ -9,6 +9,7 @@
 /ezpublish_legacy
 /ezpublish/config/parameters.yml
 /ezpublish/sessions
+/ezpublish/bootstrap.php.cache
 /web/index_treemenu.php
 /web/index_rest.php
 /web/index_cluster.php
