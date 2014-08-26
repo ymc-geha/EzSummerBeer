@@ -67,6 +67,7 @@ class EzPublishKernel extends Kernel
             new NelmioCorsBundle(),
             new KnpMenuBundle(),
             new EzSystems\EzSummerBeer\SiteBundle\EzSummerBeerSiteBundle(),
+            new EzSystems\EzSummerBeer\ImportBundle\EzSummerBeerImportBundle(),
         );
 
         switch ( $this->getEnvironment() )
