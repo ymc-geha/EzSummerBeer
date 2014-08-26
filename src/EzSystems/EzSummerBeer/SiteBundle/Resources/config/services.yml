@@ -1,0 +1,7 @@
+parameters:
+#    ez_summer_beer_site.example.class: EzSystems\EzSummerBeer\SiteBundle\Example
+
+services:
+#    ez_summer_beer_site.example:
+#        class: %ez_summer_beer_site.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
