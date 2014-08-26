@@ -3,4 +3,6 @@ parameters:
     locale_fallback: en
     ezpublish_legacy.default.view_default_layout: eZDemoBundle::pagelayout.html.twig
 
+    # Fill your API key here
+    ez_beer.brewerydb.key: ~
     ez_beer.glass.root_location: 62

@@ -1,0 +1,20 @@
+parameters:
+    ez_beer.import.data_dir: %kernel.root_dir%/data
+    ez_beer.import.file.glassware: %ez_beer.import.data_dir%/glassware.json
+    ez_beer.import.file.styles: %ez_beer.import.data_dir%/styles.json
+    ez_beer.import.file.beers: %ez_beer.import.data_dir%/beers.json
+    ez_beer.brewerydb.url: "http://api.brewerydb.com/v2"
+    ez_beer.command.data_download.class: EzSystems\EzSummerBeer\ImportBundle\Commands\DataDownloadCommand
+
+services:
+    ez_beer.command.data_download:
+        class: %ez_beer.command.data_download.class%
+        arguments:
+            -
+                glassware: %ez_beer.import.file.glassware%
+                styles: %ez_beer.import.file.styles%
+                beers: %ez_beer.import.file.beers%
+            - %ez_beer.brewerydb.url%
+            - %ez_beer.brewerydb.key%
+        tags:
+            - { name: console.command }

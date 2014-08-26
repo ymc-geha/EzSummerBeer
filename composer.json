@@ -53,7 +53,8 @@
         "hautelook/templated-uri-bundle": "~1.0",
         "doctrine/dbal": "~2.5@beta",
         "doctrine/doctrine-bundle": "~1.3@beta",
-        "ddeboer/data-import": "@stable"
+        "ddeboer/data-import": "@stable",
+        "guzzlehttp/guzzle": "~4.0"
     },
     "conflict": {
         "symfony/symfony": "2.3.9 | 2.3.14 | 2.3.15"

@@ -23,4 +23,6 @@ composer.phar
 .buildpath
 .project
 .settings/
-
+/ezpublish/data/beers.json
+/ezpublish/data/styles.json
+/ezpublish/data/glassware.json
