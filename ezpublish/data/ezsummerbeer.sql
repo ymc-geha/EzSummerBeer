@@ -7,7 +7,7 @@
 #
 # Hôte: 127.0.0.1 (MySQL 5.1.68)
 # Base de données: ezsummerbeer
-# Temps de génération: 2014-08-26 09:35:20 +0000
+# Temps de génération: 2014-08-27 13:05:13 +0000
 # ************************************************************
 
 
@@ -525,9 +525,11 @@ VALUES
 	(0,'<name>',1408976175,14,38,'place',2,0,3,1408976175,14,'861f02510226434178f3859242fe40d7','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:5:\"Place\";s:16:\"always-available\";s:6:\"eng-GB\";}',1,1,'',0),
 	(0,'<name>',1408976175,14,39,'place_list',2,1,3,1408976175,14,'e3461a7a3d2b6c0d291be6becfb6127e','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:10:\"Place list\";s:16:\"always-available\";s:6:\"eng-GB\";}',1,1,'',0),
 	(0,'<name>',1408977388,14,40,'beer',2,0,3,1408980198,14,'f306390062f51523eb6689b107dc766b','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:4:\"Beer\";s:16:\"always-available\";s:6:\"eng-GB\";}',1,1,'',0),
-	(0,'<name>',1408978363,14,41,'beer_category',2,0,3,1408978408,14,'5877f93c93247f6af7b90fe99d70f97e','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:13:\"Beer Category\";s:16:\"always-available\";s:6:\"eng-GB\";}',1,1,'',0),
-	(0,'<name>',1408978439,14,42,'beer_style',2,0,3,1408978590,14,'92293d0b69732014aa0c151eb722d9a8','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:10:\"Beer style\";s:16:\"always-available\";s:6:\"eng-GB\";}',1,1,'',0),
-	(0,'<name>',1408978611,14,43,'beer_glass',2,0,3,1408979988,14,'f4e73a5e4a71fb369de494fed6282e1f','a:2:{s:6:\"eng-GB\";s:47:\"Type of glass in which the beer is best served.\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:10:\"Beer glass\";s:16:\"always-available\";s:6:\"eng-GB\";}',1,1,'',0);
+	(0,'<name>',1408978363,14,41,'beer_category',2,1,3,1409144416,14,'5877f93c93247f6af7b90fe99d70f97e','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:13:\"Beer Category\";s:16:\"always-available\";s:6:\"eng-GB\";}',1,1,'',0),
+	(0,'<name>',1408978439,14,42,'beer_style',2,1,3,1409144400,14,'92293d0b69732014aa0c151eb722d9a8','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:10:\"Beer Style\";s:16:\"always-available\";s:6:\"eng-GB\";}',1,1,'',0),
+	(0,'<name>',1408978611,14,43,'beer_glass',2,0,3,1409144362,14,'f4e73a5e4a71fb369de494fed6282e1f','a:2:{s:6:\"eng-GB\";s:47:\"Type of glass in which the beer is best served.\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:10:\"Beer Glass\";s:16:\"always-available\";s:6:\"eng-GB\";}',1,1,'',0),
+	(0,'<beer>',1409144069,14,44,'beer_review',2,0,3,1409144333,14,'0ae0d07abb02dc834570f21da7184b6b','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:11:\"Beer Review\";s:16:\"always-available\";s:6:\"eng-GB\";}',1,1,'',0),
+	(0,'<title>',1409144461,14,45,'beer_selection',2,0,3,1409144567,14,'9190dd00dc550d13506887cf0851b45c','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:14:\"Beer Selection\";s:16:\"always-available\";s:6:\"eng-GB\";}',1,1,'',0);
 
 /*!40000 ALTER TABLE `ezcontentclass` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -744,16 +746,23 @@ VALUES
 	(1,'',40,0,0,0,0,0,0,0,0,'','','','','','ezboolean',314,'is_organic',0,0,1,6,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:10:\"Is organic\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
 	(1,'',40,0,0,0,0,0,0,0,0,'','','','','','ezimage',315,'label',0,0,0,7,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:5:\"Label\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
 	(1,'',40,0,0,0,0,0,0,0,0,'','','','','','ezstring',316,'serving_temperature',0,0,1,8,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:19:\"Serving temperature\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
-	(1,'',41,0,0,0,0,0,0,0,0,'','','','','','ezstring',318,'name',0,0,1,1,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:4:\"Name\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
+	(1,'',41,0,0,0,0,0,0,0,0,'','','','','','ezstring',318,'name',0,1,1,1,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:4:\"Name\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
 	(1,'',42,0,0,0,0,0,0,0,0,'','','','','','ezstring',319,'name',0,1,1,1,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:4:\"Name\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
-	(1,'',42,0,0,0,0,10,0,0,0,'','','','','','eztext',320,'description',0,0,1,2,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:11:\"Description\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
+	(1,'',42,0,0,0,0,20,0,0,0,'','','','','','eztext',320,'description',0,0,1,2,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:11:\"Description\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
 	(1,'',42,0,0,0,0,0,0,0,0,'','','','','','ezinteger',321,'ibu_min',0,0,1,3,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:7:\"IBU min\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
 	(1,'',42,0,0,0,0,0,0,0,0,'','','','','','ezinteger',322,'ibu_max',0,0,1,4,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:7:\"IBU max\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
 	(1,'',42,0,0,0,0,0,0,0,0,'','','','','','ezfloat',323,'abv_min',0,0,0,5,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:7:\"ABV min\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
 	(1,'',42,0,0,0,0,0,0,0,0,'','','','','','ezfloat',324,'abv_max',0,0,0,6,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:7:\"ABV max\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
-	(1,'',43,0,0,0,0,0,0,0,0,'','','','','','ezstring',325,'name',0,0,1,1,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:4:\"Name\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
+	(1,'',43,0,0,0,0,0,0,0,0,'','','','','','ezstring',325,'name',0,1,1,1,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:4:\"Name\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
 	(1,'',40,0,0,0,0,0,0,0,0,'','','','','<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<related-objects><constraints><allowed-class contentclass-identifier=\"beer_glass\"/></constraints><type value=\"2\"/><selection_type value=\"1\"/><object_class value=\"\"/><contentobject-placement node-id=\"62\"/></related-objects>\n','ezobjectrelationlist',326,'glass',0,0,1,5,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:5:\"Glass\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
-	(1,'',40,0,0,0,0,0,0,0,0,'','','','','<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<related-objects><constraints><allowed-class contentclass-identifier=\"beer\"/></constraints><type value=\"2\"/><selection_type value=\"0\"/><object_class value=\"\"/><contentobject-placement/></related-objects>\n','ezobjectrelationlist',327,'variation_from',0,0,1,9,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:14:\"Variation from\";s:16:\"always-available\";s:6:\"eng-GB\";}',0);
+	(1,'',40,0,0,0,0,0,0,0,0,'','','','','<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<related-objects><constraints><allowed-class contentclass-identifier=\"beer\"/></constraints><type value=\"2\"/><selection_type value=\"0\"/><object_class value=\"\"/><contentobject-placement/></related-objects>\n','ezobjectrelationlist',327,'variation_from',0,0,1,9,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:14:\"Variation from\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
+	(1,'',44,0,0,0,0,0,0,0,0,'','','','','<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<related-objects><constraints><allowed-class contentclass-identifier=\"beer\"/></constraints><type value=\"2\"/><selection_type value=\"0\"/><object_class value=\"\"/><contentobject-placement/></related-objects>\n','ezobjectrelationlist',328,'beer',0,1,1,1,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:4:\"Beer\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
+	(1,'',44,0,0,0,0,20,0,0,0,'','','','','','ezxmltext',329,'body',0,1,1,2,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:4:\"Body\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
+	(1,'',44,0,0,0,0,0,10,0,3,'','','','','','ezinteger',330,'score',0,1,1,3,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:20:\"Score (from 0 to 10)\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
+	(1,'',44,0,0,0,0,0,0,0,0,'','','','','','ezboolean',331,'featured',0,0,1,4,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:11:\"Is featured\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
+	(1,'',45,0,0,0,0,0,0,0,0,'','','','','','ezstring',332,'title',0,1,1,1,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:5:\"Title\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
+	(1,'',45,0,0,0,0,25,0,0,0,'','','','','','ezxmltext',333,'body',0,0,1,2,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:4:\"Body\";s:16:\"always-available\";s:6:\"eng-GB\";}',0),
+	(1,'',45,0,0,0,0,0,0,0,0,'','','','','<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<related-objects><constraints><allowed-class contentclass-identifier=\"beer\"/></constraints><type value=\"2\"/><selection_type value=\"0\"/><object_class value=\"\"/><contentobject-placement/></related-objects>\n','ezobjectrelationlist',334,'beers',0,1,1,3,'a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:0:\"\";s:16:\"always-available\";s:6:\"eng-GB\";}','a:2:{s:6:\"eng-GB\";s:5:\"Beers\";s:16:\"always-available\";s:6:\"eng-GB\";}',0);
 
 /*!40000 ALTER TABLE `ezcontentclass_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -810,7 +819,9 @@ VALUES
 	(40,0,5,'Beer'),
 	(41,0,5,'Beer'),
 	(42,0,5,'Beer'),
-	(43,0,5,'Beer');
+	(43,0,5,'Beer'),
+	(44,0,5,'Beer'),
+	(45,0,5,'Beer');
 
 /*!40000 ALTER TABLE `ezcontentclass_classgroup` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -867,8 +878,10 @@ VALUES
 	(39,0,3,'eng-GB','Place list'),
 	(40,0,3,'eng-GB','Beer'),
 	(41,0,3,'eng-GB','Beer Category'),
-	(42,0,3,'eng-GB','Beer style'),
-	(43,0,3,'eng-GB','Beer glass');
+	(42,0,3,'eng-GB','Beer Style'),
+	(43,0,3,'eng-GB','Beer Glass'),
+	(44,0,3,'eng-GB','Beer Review'),
+	(45,0,3,'eng-GB','Beer Selection');
 
 /*!40000 ALTER TABLE `ezcontentclass_name` ENABLE KEYS */;
 UNLOCK TABLES;
