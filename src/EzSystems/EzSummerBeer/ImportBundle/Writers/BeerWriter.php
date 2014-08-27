@@ -22,6 +22,9 @@ class BeerWriter extends EzPublishWriter
 
     public function writeItem(array $item)
     {
+        if (!$item['_styleId']) {
+            throw new ImportException( "Beer has no style, booooo !" );
+        }
         $this->setParentLocationId($item);
         $this->setGlass($item);
         $this->setImage($item);
@@ -32,6 +35,10 @@ class BeerWriter extends EzPublishWriter
         return $this;
     }
 
+    protected function getParentLocationId()
+    {
+        return $this->parentLocationId;
+    }
 
     protected function setParentLocationId(array &$item)
     {
@@ -40,17 +47,24 @@ class BeerWriter extends EzPublishWriter
         unset($item['_styleId']);
     }
 
+    /**
+     * Sets the glass field to the glass content id
+     * @param array $item
+     */
     protected function setGlass(array &$item)
     {
         $item['glass'] = $this->getContentService()->loadContentByRemoteId('glass-'.$item['glass']['id'])->id;
     }
 
+    /**
+     * Downloads the label image locally, and sets the field to this file's path
+     * @param array $item
+     */
     protected function setImage(array &$item)
     {
         if (!isset($item['label'])) {
             return;
         }
-
 
         $tmpName = tempnam(sys_get_temp_dir(), 'beerlabel').'.'.pathinfo($item['label'], PATHINFO_EXTENSION);
         copy($item['label'], $tmpName);

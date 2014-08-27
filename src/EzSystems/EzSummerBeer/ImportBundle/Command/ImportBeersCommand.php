@@ -26,8 +26,10 @@ class ImportBeersCommand extends ImportCommand
         $beerWriter = new Writers\BeerWriter($this->getRootLocationId(), $this->getRepository());
         $reader = new Reader\BeersReader($input->getArgument('source'));
         $workflow = new \Ddeboer\DataImport\Workflow($reader);
-        $workflow->addWriter(new \Ddeboer\DataImport\Writer\ConsoleProgressWriter($output, $reader));
-        $workflow->addWriter($beerWriter);
-        $workflow->process();
+        $workflow
+            ->addWriter(new \Ddeboer\DataImport\Writer\ConsoleProgressWriter($output, $reader))
+            ->addWriter($beerWriter)
+            ->setSkipItemOnFailure(true)
+            ->process();
     }
 }
