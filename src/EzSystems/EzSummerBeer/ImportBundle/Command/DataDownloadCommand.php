@@ -1,6 +1,6 @@
 <?php
 
-namespace EzSystems\EzSummerBeer\ImportBundle\Commands;
+namespace EzSystems\EzSummerBeer\ImportBundle\Command;
 
 use GuzzleHttp\Client;
 use Symfony\Component\Console\Command\Command;
