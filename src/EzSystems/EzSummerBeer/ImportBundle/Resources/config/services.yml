@@ -5,6 +5,8 @@ parameters:
     ez_beer.import.file.beers: %ez_beer.import.data_dir%/beers.json
     ez_beer.brewerydb.url: "http://api.brewerydb.com/v2"
     ez_beer.command.data_download.class: EzSystems\EzSummerBeer\ImportBundle\Command\DataDownloadCommand
+    ez_beer.command.import_styles.class: EzSystems\EzSummerBeer\ImportBundle\Command\ImportStylesCommand
+    ez_beer.command.import_glasses.class: EzSystems\EzSummerBeer\ImportBundle\Command\ImportGlassesCommand
 
 services:
     ez_beer.command.data_download:
@@ -16,5 +18,21 @@ services:
                 beers: %ez_beer.import.file.beers%
             - %ez_beer.brewerydb.url%
             - %ez_beer.brewerydb.key%
+        tags:
+            - { name: console.command }
+
+    ez_beer.command.import_styles:
+        class: %ez_beer.command.import_styles.class%
+        arguments:
+            - @ezpublish.api.repository
+            - %ez_beer.beers.root_location%
+        tags:
+            - { name: console.command }
+
+    ez_beer.command.import_glasses:
+        class: %ez_beer.command.import_glasses.class%
+        arguments:
+            - @ezpublish.api.repository
+            - %ez_beer.glass.root_location%
         tags:
             - { name: console.command }
