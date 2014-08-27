@@ -25,10 +25,10 @@ class StylesReader extends ArrayIterator implements ReaderInterface
                 '_creationDate' => new DateTime($item['createDate']),
                 'name' => $item['name'],
                 'description' => isset($item['description']) ? $item['description'] : null,
-                'ibu_min' => isset($item['ibuMin']) ? $item['ibuMin'] : null,
-                'ibu_max' => isset($item['ibuMax']) ? $item['ibuMax'] : null,
-                'abv_min' => isset($item['abvMin']) ? $item['abvMin'] : null,
-                'abv_max' => isset($item['abvMax']) ? $item['abvMax'] : null,
+                'ibu_min' => isset($item['ibuMin']) ? (int)$item['ibuMin'] : null,
+                'ibu_max' => isset($item['ibuMax']) ? (int)$item['ibuMax'] : null,
+                'abv_min' => isset($item['abvMin']) ? (int)$item['abvMin'] : null,
+                'abv_max' => isset($item['abvMax']) ? (int)$item['abvMax'] : null,
 
             ];
 
@@ -48,5 +48,10 @@ class StylesReader extends ArrayIterator implements ReaderInterface
     public function getFields()
     {
         return [];
+    }
+
+    protected function getParentLocationId()
+    {
+        // needs to be the category ID
     }
 }
