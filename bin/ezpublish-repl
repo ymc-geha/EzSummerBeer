@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+$root = getcwd();
+
+require_once $root.'/ezpublish/bootstrap.php.cache';
+require_once $root.'/ezpublish/EzPublishKernel.php';
+
+use Psy\Shell;
+
+$kernel = new EzPublishKernel('dev', true);
+$kernel->loadClassCache();
+$kernel->boot();
+$container = $kernel->getContainer();
+$legacyHandlerCLI = $container->get( 'ezpublish_legacy.kernel_handler.cli' );
+$container->set( 'ezpublish_legacy.kernel.lazy', null );
+$container->set( 'ezpublish_legacy.kernel_handler', $legacyHandlerCLI );
+$container->set( 'ezpublish_legacy.kernel_handler.web', $legacyHandlerCLI );
+
+$container->get('cache_clearer')->clear($kernel->getCacheDir());
+
+extract(Shell::debug(array('kernel' => $kernel, 'container' => $container)));
+
