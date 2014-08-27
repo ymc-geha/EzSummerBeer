@@ -12,13 +12,24 @@ use eZ\Publish\API\Repository\Repository;
 
 class CategoryWriter extends EzPublishWriter
 {
-    public function __construct(Repository $repository)
+    /**
+     * @var array remote id => id
+     */
+    private $knownCategories;
+
+    /** @var mixed*/
+    private $rootLocationId;
+
+    public function __construct($rootLocationId, Repository $repository)
     {
         parent::__construct('beer_category', $repository);
+        $this->rootLocationId = $rootLocationId;
     }
 
-    protected function buildRemoteId($arg)
+    protected function getParentLocationId()
     {
-        return "beercategory-$arg";
+        return $this->rootLocationId;
     }
+
+
 }

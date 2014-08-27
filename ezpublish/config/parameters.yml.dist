@@ -6,3 +6,4 @@ parameters:
     # Fill your API key here
     ez_beer.brewerydb.key: ~
     ez_beer.glass.root_location: 62
+    ez_beer.beers_root_location: 63

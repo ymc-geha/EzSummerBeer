@@ -12,13 +12,42 @@ use eZ\Publish\API\Repository\Repository;
 
 class StyleWriter extends EzPublishWriter
 {
+    /** @var CategoryWriter */
+    private $categoryWriter;
+
+    private $categoryLocationId;
+
     public function __construct(Repository $repository, CategoryWriter $categoryWriter)
     {
         parent::__construct('beer_style', $repository);
+        $this->categoryWriter = $categoryWriter;
     }
 
-    protected function buildRemoteId( $arg )
+    public function writeItem( array $item )
     {
-        return "beerstyle-$arg";
+        if (isset($item['category'])) {
+            if (!$categoryLocationId = $this->getCategoryLocationId($item['category']['_remoteId'])) {
+                $this->categoryWriter->writeItem($item['category']);
+                $categoryLocationId = $this->getCategoryLocationId($item['category']['_remoteId']);
+            }
+            $this->categoryLocationId = $categoryLocationId;
+        }
+        parent::writeItem( $item['style'] );
     }
+
+    private function getCategoryLocationId($remoteId)
+    {
+        try {
+            return $this->getContentService()->loadContentByRemoteId( $remoteId )->contentInfo->mainLocationId;
+        } catch (\eZ\Publish\API\Repository\Exceptions\NotFoundException $e) {
+            return false;
+        }
+    }
+
+    protected function getParentLocationId()
+    {
+        return $this->categoryLocationId;
+    }
+
+
 }

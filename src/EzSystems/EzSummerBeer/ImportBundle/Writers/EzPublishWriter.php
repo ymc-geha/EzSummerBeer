@@ -3,7 +3,7 @@
  * This file is part of the eZ Publish Legacy package
  *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributd with this source code.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @version //autogentag//
  */
 namespace EzSystems\EzSummerBeer\ImportBundle\Writers;
@@ -20,6 +20,8 @@ class EzPublishWriter implements WriterInterface
 
     /** @var Repository */
     private $repository;
+
+    private $lastId;
 
     public function __construct($contentTypeIdentifier, Repository $repository)
     {
@@ -38,9 +40,10 @@ class EzPublishWriter implements WriterInterface
         $this->mapItemToStruct($item, $createStruct);
         $content = $this->getContentService()->createContent(
             $createStruct,
-            array($this->getLocationService()->newLocationCreateStruct(2))
+            array($this->getLocationService()->newLocationCreateStruct($this->getParentLocationId()))
         );
         $this->getContentService()->publishVersion($content->versionInfo);
+        $this->lastId = $content->id;
         return $this;
     }
 
@@ -49,23 +52,26 @@ class EzPublishWriter implements WriterInterface
         // TODO: Implement finish() method.
     }
 
+    protected function getParentLocationId()
+    {
+        return 2;
+    }
+
     private function mapItemToStruct(array $item, ContentCreateStruct $createStruct)
     {
         foreach($item as $key => $value){
             switch($key)
             {
                 case '_remoteId':
-                    $createStruct->remoteId = $this->buildRemoteId($value);
+                    $createStruct->remoteId = $value;
+                    break;
+                case '_creationDate':
+                    $createStruct->modificationDate = $value;
                     break;
                 default:
                     $createStruct->setField($key, $value);
             }
         }
-    }
-
-    protected function buildRemoteId($arg)
-    {
-        return $arg;
     }
 
     /**
@@ -82,7 +88,7 @@ class EzPublishWriter implements WriterInterface
     /**
      * @return \eZ\Publish\API\Repository\ContentTypeService
      */
-    private function getContentTypeService()
+    protected function getContentTypeService()
     {
         return $this->repository->getContentTypeService();
     }
@@ -90,7 +96,7 @@ class EzPublishWriter implements WriterInterface
     /**
      * @return \eZ\Publish\API\Repository\ContentService
      */
-    private function getContentService()
+    protected function getContentService()
     {
         return $this->repository->getContentService();
     }
@@ -98,7 +104,7 @@ class EzPublishWriter implements WriterInterface
     /**
      * @return \eZ\Publish\API\Repository\LocationService
      */
-    private function getLocationService()
+    protected function getLocationService()
     {
         return $this->repository->getLocationService();
     }
@@ -109,5 +115,14 @@ class EzPublishWriter implements WriterInterface
     private function getUserService()
     {
         return $this->repository->getUserService();
+    }
+
+    /**
+     * Returns the ID of the last written element
+     * @return mixed
+     */
+    protected function getLastId()
+    {
+        return $this->lastId;
     }
 }
