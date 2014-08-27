@@ -4,7 +4,9 @@ namespace EzSystems\EzSummerBeer\ImportBundle\Commands;
 
 use GuzzleHttp\Client;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -65,13 +67,29 @@ class DataDownloadCommand extends Command
 
         $output->writeln('<info>Now downloading beers data</info>');
         $beerData = [];
+        // Arbitrarily limit to 20 pages (i.e. max 1000 beers per glassware)
+        $maxBeerPages = 20;
+        $bar = new ProgressBar($output);
+        $bar->start();
         foreach ($glasswareResponse->json()['data'] as $item) {
-            $response = $httpClient->get(
-                "$this->apiUrl/beers",
-                ['query' => ['key' => $this->apiKey, 'glasswareId' => $item['id']]]
-            );
-            $beerData = array_merge($beerData, $response->json()['data']);
+            for ($page = 1; $page <= $maxBeerPages; ++$page) {
+                $response = $httpClient->get(
+                    "$this->apiUrl/beers",
+                    ['query' => ['key' => $this->apiKey, 'glasswareId' => $item['id'], 'p' => $page]]
+                );
+
+                $json = $response->json();
+                if ($page > $json['numberOfPages']) {
+                    continue;
+                }
+
+                $beerData = array_merge($beerData, $json['data']);
+                $bar->advance(count($json['data']));
+            }
         }
+
+        $bar->finish();
+        $output->writeln('<info>Dumping beer data to JSON file</info>');
         $fs->dumpFile($this->dataFilePaths['beers'], json_encode($beerData));
     }
 }
