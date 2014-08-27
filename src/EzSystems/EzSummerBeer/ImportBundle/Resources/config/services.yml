@@ -7,6 +7,7 @@ parameters:
     ez_beer.command.data_download.class: EzSystems\EzSummerBeer\ImportBundle\Command\DataDownloadCommand
     ez_beer.command.import_styles.class: EzSystems\EzSummerBeer\ImportBundle\Command\ImportStylesCommand
     ez_beer.command.import_glasses.class: EzSystems\EzSummerBeer\ImportBundle\Command\ImportGlassesCommand
+    ez_beer.command.import_beers.class: EzSystems\EzSummerBeer\ImportBundle\Command\ImportBeersCommand
 
 services:
     ez_beer.command.data_download:
@@ -34,5 +35,13 @@ services:
         arguments:
             - @ezpublish.api.repository
             - %ez_beer.glass.root_location%
+        tags:
+            - { name: console.command }
+
+    ez_beer.command.import_beers:
+        class: %ez_beer.command.import_beers.class%
+        arguments:
+            - @ezpublish.api.repository
+            - 0
         tags:
             - { name: console.command }

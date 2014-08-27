@@ -31,8 +31,8 @@ class BeersReader extends ArrayIterator implements ReaderInterface
                 '_styleId' => $styleId,
                 'name' => $item['name'],
                 'description' => isset($item['description']) ? $item['description'] : null,
-                'abv' => isset($item['abv']) ? $item['abv'] : null,
-                'ibu' => isset($item['ibu']) ? $item['ibu'] : null,
+                'abv' => isset($item['abv']) ? (float)$item['abv'] : null,
+                'ibu' => isset($item['ibu']) ? (int)$item['ibu'] : null,
                 'glass' => isset($item['glass']) ? $item['glass'] : null,
                 'is_organic' => isset($item['isOrganic']) && $item['isOrganic'] === 'Y' ? true : false,
                 'label' => isset($item['labels']['large']) ? $item['labels']['large'] : null,
@@ -62,4 +62,3 @@ class BeersReader extends ArrayIterator implements ReaderInterface
         ];
     }
 }
- 
