@@ -8,15 +8,19 @@ use Ddeboer\DataImport\Reader\ReaderInterface;
 
 class BeersReader extends ArrayIterator implements ReaderInterface
 {
-    public function __construct($file)
+    public function __construct($file, $offset = 0)
     {
-        parent::__construct($this->loadData($file));
+        parent::__construct($this->loadData($file, $offset));
     }
 
-    protected function loadData($file)
+    protected function loadData($file, $offset)
     {
         $data = [];
-        foreach (json_decode(file_get_contents($file), true) as $item) {
+        foreach (json_decode(file_get_contents($file), true) as $i => $item) {
+            if ($i < $offset) {
+                continue;
+            }
+
             if (isset($item['styleId'])) {
                 $styleId = $item['styleId'];
             } elseif (isset($item['style']['id'])) {
