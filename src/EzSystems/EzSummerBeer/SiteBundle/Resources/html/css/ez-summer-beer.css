@@ -68,6 +68,17 @@ h6,
     font-size: 24px;
 }
 
+/* ---=== NAVBAR ===--- */
+.header-11 {
+    background-color: #2C3E50;
+}
+.header-11 .navbar .nav > li > a{
+    color: #fff;
+}
+.header-11 .navbar .brand{
+    color: #fff;
+}
+
 /* ---=== BEER===--- */
 .content-type-beer .thumbnail{
     border: none;
