@@ -58,7 +58,6 @@ class EzPublishKernel extends Kernel
             new HautelookTemplatedUriBundle(),
             new EzPublishCoreBundle(),
             new EzPublishLegacyBundle( $this ),
-            new EzSystemsDemoBundle(),
             new EzPublishRestBundle(),
             new EzSystemsCommentsBundle(),
             new EzSystemsNgsymfonytoolsBundle(),
