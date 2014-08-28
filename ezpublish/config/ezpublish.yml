@@ -194,6 +194,12 @@ ezpublish:
             session:
                 name: eZSESSID
 
+ez_publish_legacy:
+    system:
+        beer_frontend_group:
+            templating:
+                view_layout: "EzSummerBeerSiteBundle::pagelayout.html.twig"
+
 stash:
     caches:
         default:
