@@ -54,6 +54,7 @@ class BeerWriter extends EzPublishWriter
     protected function setGlass(array &$item)
     {
         $item['glass'] = $this->getContentService()->loadContentByRemoteId($item['_glassId'])->id;
+        unset($item['_glassId']);
     }
 
     /**
