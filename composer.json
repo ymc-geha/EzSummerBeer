@@ -70,7 +70,7 @@
         "behat/mink-selenium2-driver": "*",
         "ezsystems/behatbundle": "@dev",
         "phpunit/phpunit": "3.7.*",
-        "psy/psysh": "~0.1"
+        "lolautruche/ezsh": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

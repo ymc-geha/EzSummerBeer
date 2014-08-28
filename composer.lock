@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4b88ec77f850f4d2590b36a4e2add654",
+    "hash": "b2b8702f527fc1c7cc55d7a9a517c49d",
     "packages": [
         {
             "name": "ddeboer/data-import",
@@ -5548,12 +5548,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezsystems/BehatBundle.git",
-                "reference": "f84f8712b047d379b9d7649c7682f9c4f7ce82ef"
+                "reference": "0610034080fc87e9fb3df8d42a82d5bb244bf63c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezsystems/BehatBundle/zipball/f84f8712b047d379b9d7649c7682f9c4f7ce82ef",
-                "reference": "f84f8712b047d379b9d7649c7682f9c4f7ce82ef",
+                "url": "https://api.github.com/repos/ezsystems/BehatBundle/zipball/0610034080fc87e9fb3df8d42a82d5bb244bf63c",
+                "reference": "0610034080fc87e9fb3df8d42a82d5bb244bf63c",
                 "shasum": ""
             },
             "require": {
@@ -5577,7 +5577,7 @@
                 }
             ],
             "description": "Behat bundle for help testing eZ Bundles and projects",
-            "time": "2014-08-26 09:24:56"
+            "time": "2014-08-27 10:27:01"
         },
         {
             "name": "fabpot/goutte",
@@ -5892,6 +5892,48 @@
                 "webtest"
             ],
             "time": "2013-10-04 15:03:51"
+        },
+        {
+            "name": "lolautruche/ezsh",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lolautruche/ezsh.git",
+                "reference": "dff85c5f0e9a793869b32fde2fc851c2bc2f23fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lolautruche/ezsh/zipball/dff85c5f0e9a793869b32fde2fc851c2bc2f23fc",
+                "reference": "dff85c5f0e9a793869b32fde2fc851c2bc2f23fc",
+                "shasum": ""
+            },
+            "require": {
+                "psy/psysh": "~0.1"
+            },
+            "bin": [
+                "bin/ezsh"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jerome Vieilledent",
+                    "email": "lolautruche@gmail.com"
+                }
+            ],
+            "description": "Interactive debug shell for eZ Publish 5+ apps. Uses PsySH.",
+            "keywords": [
+                "REPL",
+                "console",
+                "debug",
+                "ezpublish",
+                "interactive",
+                "shell"
+            ],
+            "time": "2014-08-28 20:17:40"
         },
         {
             "name": "nikic/php-parser",
@@ -6405,7 +6447,8 @@
         "doctrine/doctrine-bundle": 10,
         "ddeboer/data-import": 0,
         "behat/sahi-client": 20,
-        "ezsystems/behatbundle": 20
+        "ezsystems/behatbundle": 20,
+        "lolautruche/ezsh": 20
     },
     "prefer-stable": false,
     "platform": {
