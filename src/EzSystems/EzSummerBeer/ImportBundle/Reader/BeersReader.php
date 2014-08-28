@@ -22,9 +22,9 @@ class BeersReader extends ArrayIterator implements ReaderInterface
             }
 
             if (isset($item['styleId'])) {
-                $styleId = $item['styleId'];
+                $styleId = 'style-'.$item['styleId'];
             } elseif (isset($item['style']['id'])) {
-                $styleId = $item['style']['id'];
+                $styleId = 'style-'.$item['style']['id'];
             } else {
                 $styleId = null;
             }
@@ -33,6 +33,7 @@ class BeersReader extends ArrayIterator implements ReaderInterface
                 '_remoteId' => 'beer-' . $item['id'],
                 '_creationDate' => new DateTime($item['createDate']),
                 '_styleId' => $styleId,
+                '_glassId' => isset($item['glass']['id']) ? 'glass-'.$item['glass']['id'] : null,
                 'name' => $item['name'],
                 'description' => isset($item['description']) ? $item['description'] : null,
                 'abv' => isset($item['abv']) ? (float)$item['abv'] : null,

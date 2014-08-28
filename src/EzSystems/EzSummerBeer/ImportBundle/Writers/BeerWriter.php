@@ -42,7 +42,7 @@ class BeerWriter extends EzPublishWriter
 
     protected function setParentLocationId(array &$item)
     {
-        $styleContent = $this->getContentService()->loadContentByRemoteId('style-'.$item['_styleId']);
+        $styleContent = $this->getContentService()->loadContentByRemoteId($item['_styleId']);
         $this->parentLocationId = $styleContent->contentInfo->mainLocationId;
         unset($item['_styleId']);
     }
@@ -53,7 +53,7 @@ class BeerWriter extends EzPublishWriter
      */
     protected function setGlass(array &$item)
     {
-        $item['glass'] = $this->getContentService()->loadContentByRemoteId('glass-'.$item['glass']['id'])->id;
+        $item['glass'] = $this->getContentService()->loadContentByRemoteId($item['_glassId'])->id;
     }
 
     /**
