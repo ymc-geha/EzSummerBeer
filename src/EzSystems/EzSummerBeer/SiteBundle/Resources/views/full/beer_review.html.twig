@@ -38,23 +38,10 @@
         <hr class="delimiter-big">
 
         {# Begin: Embed beer #}
-        <div class="row">
-
-            <div class="col-md-8">
-                <div class="attribute-beer">
-                    <h2><a href="beer.html" title="Delirium Nocturnum">Delirium Nocturnum</a></h2>
-                    <p>
-                        A warm velvety soft character beer with a strong taste and long lasting bitter aftertaste - Delirium Nocturnum is the sister Belgian ale to Delirium Tremens. It is a Belgian ale that is strong, complex, with lots of flavour and character. Delirium Nocturnum is a triple fermented beer with re-fermentation in the bottle.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-4 ">
-                <div class="thumbnail">
-                    <img src="images/delirium-medium.png" alt="Delirium Nocturnum" title="Delirium Nocturnum">
-                </div>
-            </div>
-        </div>
+        {% if not ez_is_field_empty(content, "beer") %}
+            {% set beerContentId = ez_field_value(content, "beer").destinationContentIds[0] %}
+            {{ render(controller("ez_content:viewContent", {"contentId": beerContentId, "viewType": "embed"})) }}
+        {% endif %}
         {# End: Embed beer #}
     </div>
 </section>

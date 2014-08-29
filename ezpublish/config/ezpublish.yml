@@ -192,6 +192,13 @@ ezpublish:
                         match:
                             Identifier\ContentType: "beer_style"
 
+            content_view:
+                embed:
+                    beer:
+                        template: "EzSummerBeerSiteBundle:embed:beer.html.twig"
+                        match:
+                            Identifier\ContentType: "beer"
+
         eng:
             languages:
                 - eng-GB
