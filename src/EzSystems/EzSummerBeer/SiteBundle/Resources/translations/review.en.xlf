@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>ezbeer.review.review</source>
+                <target>Review:</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>ezbeer.review.score</source>
+                <target>Our rating</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>ezbeer.review.author_date</source>
+                <target><![CDATA[Reviewed by <span itemprop="reviewer">%author%</span> on <time itemprop="dtreviewed" datetime="%date_raw%">%date%</time>.]]></target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

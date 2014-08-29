@@ -1,0 +1,61 @@
+{% extends "EzSummerBeerSiteBundle::pagelayout.html.twig" %}
+
+{% block content %}
+<section class="content-11 content-view-full content-type-review">
+    <div class="container" itemscope itemtype="http://data-vocabulary.org/Review">
+        <div class="row">
+
+            <div class="col-md-12">
+                <h1 itemprop="name">
+                    {{ "ezbeer.review.review"|trans({}, "review") }}
+                    <span itemprop="itemreviewed">{{ ez_content_name(content) }}</span>
+                    {% if ez_field_value(content, "featured").bool %} <span class="glyphicon glyphicon-heart"></span>{% endif %}
+                </h1>
+
+                <div class="author">
+                    <em>
+                        {{ "ezbeer.review.author_date"|trans({
+                                "%author%": "John 'We don't have the author name yet' Doe",
+                                "%date_raw%": content.contentInfo.publishedDate|date("Y-m-d"),
+                                "%date%": content.contentInfo.publishedDate|localizeddate("medium", "none", app.request.locale)
+                            }, "review")|raw }}
+                    </em>
+                </div>
+
+                <div class="attribute-description margin-40" itemprop="description">
+                    <div class="rating text-center">
+                        <h5>{{ "ezbeer.review.score"|trans({}, "review") }}</h5>
+                        {# Score is out of 10 but we need it to be out of 5 #}
+                        {% set score = ez_field_value(content, "score").value / 2 %}
+                        <span class="rating" itemprop="rating">{{ score }}</span> /5
+                    </div>
+                    {{ ez_render_field(content, "body") }}
+                </div>
+            </div>
+        </div>
+
+
+        <hr class="delimiter-big">
+
+        {# Begin: Embed beer #}
+        <div class="row">
+
+            <div class="col-md-8">
+                <div class="attribute-beer">
+                    <h2><a href="beer.html" title="Delirium Nocturnum">Delirium Nocturnum</a></h2>
+                    <p>
+                        A warm velvety soft character beer with a strong taste and long lasting bitter aftertaste - Delirium Nocturnum is the sister Belgian ale to Delirium Tremens. It is a Belgian ale that is strong, complex, with lots of flavour and character. Delirium Nocturnum is a triple fermented beer with re-fermentation in the bottle.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 ">
+                <div class="thumbnail">
+                    <img src="images/delirium-medium.png" alt="Delirium Nocturnum" title="Delirium Nocturnum">
+                </div>
+            </div>
+        </div>
+        {# End: Embed beer #}
+    </div>
+</section>
+{% endblock %}
