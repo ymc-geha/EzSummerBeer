@@ -35,6 +35,12 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+      locations:
+        root: %ez_beer.root.root_location%
+        beers: %ez_beer.beers.root_location%
+        reviews: %ez_beer.reviews.root_location%
+        blog: %ez_beer.blog.root_location%
 
 # Assetic Configuration
 assetic:

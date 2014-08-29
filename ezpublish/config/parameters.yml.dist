@@ -11,5 +11,10 @@ parameters:
 
     # Fill your API key here
     ez_beer.brewerydb.key: ~
+
+    # Root locations ids
+    ez_beer.root.root_location: 2
     ez_beer.glass.root_location: 62
     ez_beer.beers.root_location: 63
+    ez_beer.reviews.root_location: 4184
+    ez_beer.blog.root_location: 4185
