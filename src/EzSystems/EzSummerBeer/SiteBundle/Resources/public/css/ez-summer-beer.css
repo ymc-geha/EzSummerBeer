@@ -68,6 +68,68 @@ h6,
     font-size: 24px;
 }
 
+/* ---=== NAVBAR ===--- */
+.header-11 {
+    background-color: #2C3E50;
+}
+.header-11 .navbar .nav > li > a{
+    color: #fff;
+}
+.header-11 .navbar .brand{
+    color: #fff;
+}
+
+/* ---=== HOMEPAGE ===--- */
+.header-10-sub .background {
+    background-image: url("../images/beer-bg.jpg");
+    opacity: 85;
+    filter: alpha(opacity=8500);
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+}
+.header-10-sub .hero-unit p{
+    color: #fff;
+}
+.button.outline {
+    background-color: transparent;
+    border: 3px solid #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    display: inline-block;
+    position: absolute;
+    bottom: 150px;
+    left: 48%;
+    width: 140px;
+    height: 60px;
+    line-height: 53px;
+    margin: 0px 0px 0px -26.5px;
+    color: #fff;
+}
+.content-8 .thumbnail{
+    border: none;
+}
+.content-8 .btn.btn-clear {
+    box-sizing: border-box;
+    background: none repeat scroll 0% 0% transparent;
+    border: 2px solid #1ABC9C;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 12px 28px;
+    color: #1ABC9C;
+}
+.content-8 .btn.btn-clear:hover,
+.content-8 .btn.btn-clear:focus {
+    background-color: #48C9B0;
+    border-color: #48C9B0;
+    color: #fff;
+}
+.content-8 .btn.btn-clear:active {
+    background: none repeat scroll 0% 0% #16A085;
+    border-color: #16A085;
+    color: #fff;
+}
+
 /* ---=== BEER===--- */
 .content-type-beer .thumbnail{
     border: none;
