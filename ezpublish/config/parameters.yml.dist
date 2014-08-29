@@ -17,4 +17,4 @@ parameters:
     ez_beer.glass.root_location: 62
     ez_beer.beers.root_location: 63
     ez_beer.reviews.root_location: 4184
-    ez_beer.blog.root_location: 4185
+    ez_beer.blog.root_location: 4187
