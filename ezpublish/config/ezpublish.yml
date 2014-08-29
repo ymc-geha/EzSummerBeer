@@ -185,6 +185,7 @@ ezpublish:
                             Id\Location: %ez_beer.root.root_location%
                     beer:
                         template: "EzSummerBeerSiteBundle:full:beer.html.twig"
+                        controller: "EzSummerBeerSiteBundle:Beer:viewBeer"
                         match:
                             Identifier\ContentType: "beer"
                     beer_review:
@@ -207,6 +208,10 @@ ezpublish:
                         template: "EzSummerBeerSiteBundle:embed:beer.html.twig"
                         match:
                             Identifier\ContentType: "beer"
+                    beer_review:
+                        template: "EzSummerBeerSiteBundle:embed:beer_review.html.twig"
+                        match:
+                            Identifier\ContentType: "beer_review"
                 embed-home:
                     beer:
                         template: "EzSummerBeerSiteBundle:embed-home:beer.html.twig"
