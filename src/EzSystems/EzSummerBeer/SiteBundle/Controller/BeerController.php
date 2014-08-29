@@ -39,9 +39,20 @@ class BeerController extends Controller
             }
         }
 
+        // Get the glass type
+        $glassContentInfo = null;
+        $content = $contentService->loadContentByContentInfo($location->getContentInfo());
+        /** @var \eZ\Publish\Core\FieldType\RelationList\Value $glassValue */
+        $glassValue = $this->get('ezpublish.translation_helper')->getTranslatedField($content, 'glass')->value;
+        if ( $glassValue->destinationContentIds ) {
+            $glassContentInfo = $contentService->loadContentInfo($glassValue->destinationContentIds[0]);
+        }
+
         return $this->get('ez_content')->viewLocation(
-            $locationId, $viewType, $layout,
-            ['reviewContentInfo' => $reviewContentInfo] + $params
+            $locationId, $viewType, $layout, [
+                'reviewContentInfo' => $reviewContentInfo,
+                'glassContentInfo' => $glassContentInfo
+            ] + $params
         );
     }
 }
