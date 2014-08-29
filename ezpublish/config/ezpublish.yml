@@ -178,6 +178,10 @@ ezpublish:
         beer_frontend_group:
             location_view:
                 full:
+                    home:
+                        template: "EzSummerBeerSiteBundle:full:home.html.twig"
+                        match:
+                            Id\Location: %ez_beer.root.root_location%
                     beer:
                         template: "EzSummerBeerSiteBundle:full:beer.html.twig"
                         match:

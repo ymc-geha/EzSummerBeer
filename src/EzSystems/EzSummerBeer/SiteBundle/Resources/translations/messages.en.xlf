@@ -30,6 +30,22 @@
                 <source>ezbeer.author_date</source>
                 <target>Written by %author% on %date%</target>
             </trans-unit>
+            <trans-unit id="8">
+                <source>ezbeer.discover</source>
+                <target>Discover the best beers for eZ Summer Camp 2014</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>ezbeer.learn_ezpublish</source>
+                <target>The best way to learn eZ Publish ;-)</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>ezbeer.latest_selection</source>
+                <target>Our Latest Selection</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>ezbeer.view_it_now</source>
+                <target>VIEW IT NOW</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
