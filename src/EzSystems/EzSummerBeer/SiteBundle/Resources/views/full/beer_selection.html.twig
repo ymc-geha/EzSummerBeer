@@ -1,0 +1,43 @@
+{% extends "EzSummerBeerSiteBundle::pagelayout.html.twig" %}
+
+{% block content %}
+<section class="content-11 content-view-full content-type-beer-selection">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <h1>{{ ez_render_field(content, "title") }}</h1>
+
+                <div class="author">
+                    <em>
+                        {{ "ezbeer.author_date"|trans({
+                                "%author%": "John 'We don't have the author name yet' Doe",
+                                "%date%": content.contentInfo.publishedDate|localizeddate("medium", "none", app.request.locale)
+                            }) }}
+                    </em>
+                </div>
+
+                <div class="attribute-description margin-40" >
+                    {{ ez_render_field(content, "body") }}
+                </div>
+            </div>
+        </div>
+
+        <div class="delimiter-big"></div>
+
+
+        {{ ez_render_field(content, "beers", {"template": _self}) }}
+
+
+    </div>
+</section>
+{% endblock %}
+
+{% block ezobjectrelationlist_field %}
+    {% for contentId in field.value.destinationContentIds %}
+        {{ render_esi(controller("ez_content:viewContent", {"contentId": contentId, "viewType": "embed"})) }}
+
+        {% if not loop.last %}<hr>{% endif %}
+
+    {% endfor %}
+{% endblock %}
