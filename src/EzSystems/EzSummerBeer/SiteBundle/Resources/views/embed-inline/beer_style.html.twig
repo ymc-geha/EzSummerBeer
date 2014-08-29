@@ -1,0 +1,9 @@
+{% set styleName = ez_content_name(content) %}
+<div class="category margin-20 text-center">
+    <a href="{{ path(location) }}">
+        <span  class="btn btn-primary" itemprop="category" content="{{ styleName }}">
+            <span class="glyphicon glyphicon-tag"></span>
+            {{ styleName }}
+        </span>
+    </a>
+</div>
