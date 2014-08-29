@@ -8,11 +8,11 @@
             </trans-unit>
             <trans-unit id="2">
                 <source>ezbeer.footer.phrase</source>
-                <target>Je bois pour rendre les autres plus intéressants.</target>
+                <target>I drink to make other people more interesting.</target>
             </trans-unit>
             <trans-unit id="3">
                 <source>ezbeer.find_beer</source>
-                <target>Chercher une bière !</target>
+                <target>Find a Beer!</target>
             </trans-unit>
         </body>
     </file>
