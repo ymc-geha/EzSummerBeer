@@ -2,11 +2,11 @@ doctrine:
     dbal:
         connections:
             beer_repository_connection:
-                driver: pdo_mysql
-                host: localhost
-                user: root
-                password: root
-                dbname: ezsummerbeer
+                driver: %db_driver%
+                host: %db_host%
+                user: %db_user%
+                password: %db_password%
+                dbname: %db_name%
                 charset: UTF8
 ezpublish:
     http_cache:

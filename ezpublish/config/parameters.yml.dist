@@ -2,6 +2,13 @@ parameters:
     secret: ThisTokenIsNotSoSecretChangeIt
     locale_fallback: en
 
+    # Database params
+    db_driver: pdo_mysql
+    db_host: localhost
+    db_user: root
+    db_password: ~
+    db_name: ezsummerbeer
+
     # Fill your API key here
     ez_beer.brewerydb.key: ~
     ez_beer.glass.root_location: 62
