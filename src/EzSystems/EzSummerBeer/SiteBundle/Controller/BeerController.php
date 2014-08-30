@@ -3,7 +3,9 @@
 namespace EzSystems\EzSummerBeer\SiteBundle\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
+use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
 use eZ\Publish\API\Repository\Values\Content\Relation;
 
 class BeerController extends Controller
@@ -52,6 +54,26 @@ class BeerController extends Controller
             $locationId, $viewType, $layout, [
                 'reviewContentInfo' => $reviewContentInfo,
                 'glassContentInfo' => $glassContentInfo
+            ] + $params
+        );
+    }
+
+    public function viewBeerStyleAction($locationId, $viewType, $params = [], $layout = false)
+    {
+        $query = new LocationQuery();
+        $query->criterion = new Criterion\LogicalAnd([
+            new Criterion\Visibility(Criterion\Visibility::VISIBLE),
+            new Criterion\ContentTypeIdentifier('beer'),
+            new Criterion\ParentLocationId($locationId)
+        ]);
+        $query->sortClauses = [new SortClause\ContentName()];
+        $query->limit = 5;
+
+        $beerResult = $this->getRepository()->getSearchService()->findLocations($query);
+
+        return $this->get('ez_content')->viewLocation(
+            $locationId, $viewType, $layout, [
+                'beerResult' => $beerResult
             ] + $params
         );
     }
