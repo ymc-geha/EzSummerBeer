@@ -96,4 +96,17 @@ class BeerController extends Controller
             ] + $params
         );
     }
+
+    public function viewBeerCategoriesAction($locationId, $viewType, $params = [], $layout = false)
+    {
+        $locationService = $this->getRepository()->getLocationService();
+        $location = $locationService->loadLocation($locationId);
+        $children = $locationService->loadLocationChildren($location);
+
+        return $this->get('ez_content')->viewLocation(
+             $locationId, $viewType, $layout, [
+                'children' => $children->locations
+            ] + $params
+        );
+    }
 }
