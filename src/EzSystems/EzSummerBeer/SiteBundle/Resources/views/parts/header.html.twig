@@ -7,6 +7,23 @@
                     <a class="brand" href="{{ path(ezpublish.rootLocation) }}">{{ "ezbeer.brand"|trans }}</a>
                 </div>
                 <div class="collapse navbar-collapse pull-right">
+                    <div class="dropdown pull-left">
+                        <button class="btn language dropdown-toggle" data-toggle="dropdown">
+                            <img src="{{ asset("bundles/ezsummerbeersite/images/flag-" ~ app.request.locale[-2:] ~ ".png") }}" alt="{{ app.request.locale }}">
+                            <span class="caret"></span>
+                        </button>
+                        <span class="dropdown-arrow"></span>
+                        <ul class="dropdown-menu">
+                        {% for lang in ezpublish.availableLanguages %}
+                            {% set route = location is defined ? location : app.request.attributes.get('_route') %}
+                            <li>
+                                <a href="{{ url(ez_route(route, {"language": lang})) }}">
+                                    <img src="{{ asset("bundles/ezsummerbeersite/images/flag-" ~ lang[-2:] ~ ".png") }}" alt="{{ lang }}"> {{ lang }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
                     <ul class="nav pull-left">
                         <li><a href="{{ path('ez_urlalias', {"locationId": locations.root} ) }}">{{ "HOME"|trans }}</a></li>
                         <li><a href="{{ path('ez_urlalias', {"locationId": locations.reviews} ) }}">{{ "REVIEWS"|trans }}</a></li>
