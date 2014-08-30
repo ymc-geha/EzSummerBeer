@@ -7,6 +7,9 @@ use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
 use eZ\Publish\API\Repository\Values\Content\Relation;
+use eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchAdapter;
+use Pagerfanta\Pagerfanta;
+use Symfony\Component\HttpFoundation\Request;
 
 class BeerController extends Controller
 {
@@ -58,8 +61,22 @@ class BeerController extends Controller
         );
     }
 
-    public function viewBeerStyleAction($locationId, $viewType, $params = [], $layout = false)
+    /**
+     * Beer style view.
+     * We'll list beers for requested style.
+     *
+     * @param Request $request
+     * @param int $locationId
+     * @param string $viewType
+     * @param array $params
+     * @param bool $layout
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function viewBeerStyleAction(Request $request, $locationId, $viewType, $params = [], $layout = false)
     {
+        // First build the location search query.
+        // We're looking for beers right under the current location.
         $query = new LocationQuery();
         $query->criterion = new Criterion\LogicalAnd([
             new Criterion\Visibility(Criterion\Visibility::VISIBLE),
@@ -67,13 +84,15 @@ class BeerController extends Controller
             new Criterion\ParentLocationId($locationId)
         ]);
         $query->sortClauses = [new SortClause\ContentName()];
-        $query->limit = 5;
 
-        $beerResult = $this->getRepository()->getSearchService()->findLocations($query);
+        // Now initialize the pager, using LocationSearchAdapter
+        $beerPager = new Pagerfanta(new LocationSearchAdapter($query, $this->getRepository()->getSearchService()));
+        $beerPager->setCurrentPage($request->get('page', 1));
+        $beerPager->setMaxPerPage(5);
 
         return $this->get('ez_content')->viewLocation(
             $locationId, $viewType, $layout, [
-                'beerResult' => $beerResult
+                'beers' => $beerPager
             ] + $params
         );
     }

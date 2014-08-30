@@ -27,32 +27,27 @@
             </div>
         </div>
 
-        {% for beer in beerResult.searchHits %}
-            {% set beerLocationId = beer.valueObject.id %}
-            {{ render_esi(controller("ez_content:viewLocation", {"locationId": beerLocationId, "viewType": "line"})) }}
+        {% for beerLocation in beers %}
+            {{ render_esi(controller("ez_content:viewLocation", {"locationId": beerLocation.id, "viewType": "line"})) }}
 
             <hr>
 
         {% endfor %}
 
+        {% if beers.haveToPaginate() %}
         <div class="row">
             <div class="col-md-12  text-center">
                 <div class="pagination">
-                    <ul>
-                        <li class="previous"><a href="#fakelink" class="glyphicon glyphicon-chevron-left"></a></li>
-                        <li class="active"><a href="#fakelink">1</a></li>
-                        <li><a href="#fakelink">2</a></li>
-                        <li><a href="#fakelink">3</a></li>
-                        <li><a href="#fakelink">4</a></li>
-                        <li><a href="#fakelink">5</a></li>
-                        <li><a href="#fakelink">6</a></li>
-                        <li><a href="#fakelink">7</a></li>
-                        <li><a href="#fakelink">8</a></li>
-                        <li class="next"><a href="#fakelink" class="glyphicon glyphicon-chevron-right"></a></li>
-                    </ul>
+                    {# We specify the root name to ensure we use the current location's URLAlias #}
+                    {{ pagerfanta(beers, "twitter_bootstrap3_translated", {
+                        "rootName": location,
+                        "dots_message": "&nbsp;&nbsp;",
+                        "css_prev_class": "previous"
+                    }) }}
                 </div>
             </div>
         </div>
+        {% endif %}
 
     </div>
 
