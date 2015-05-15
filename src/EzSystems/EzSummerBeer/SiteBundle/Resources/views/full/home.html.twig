@@ -26,26 +26,15 @@
             <h3>{{ "ezbeer.latest_selection"|trans }}</h3>
 
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="thumbnail">
-                        <img src="{{ asset("bundles/ezsummerbeersite/images/delirium-medium.png") }}" alt="Brooklyn Lager" title="Brooklyn Lager">
-                    </div>
-                    <p>
-                        A warm velvety soft character beer with a strong taste and long lasting bitter aftertaste - Delirium Nocturnum is the sister Belgian ale to Delirium Tremens. It is a Belgian ale that is strong, complex, with lots of flavour and character. Delirium Nocturnum is a triple fermented beer with re-fermentation in the bottle.
-                    </p>
-                </div>
-                <div class="col-sm-6">
-                    <div class="thumbnail">
-                        <img src="{{ asset("bundles/ezsummerbeersite/images/brooklyn-lager-medium.png") }}" alt="Brooklyn Lager" title="Brooklyn Lager">
-                    </div>
-                    <p>
-                        In the late 1800’s Brooklyn was one of the largest brewing centers in the country, home to more than 45 breweries. Lager beer in the “Vienna” style was one of the local favorites. It is amber-gold in color and displays a firm malt center supported by a refreshing bitterness and floral hop aroma.
-                    </p>
-                </div>
+            {% set selectionBeersValue = ez_field_value(last_selection, "beers") %}
+            {% for contentId in selectionBeersValue.destinationContentIds %}
+                {{ render_esi(controller("ez_content:embedContent", {"contentId": contentId, "viewType": "embed-home"})) }}
+
+            {% endfor %}
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <a class="btn btn-large btn-clear margin-40" href="beer-selection.html">{{ "ezbeer.view_it_now"|trans }}</a>
+                    <a class="btn btn-large btn-clear margin-40" href="{{ path("ez_urlalias", {"locationId": last_selection.contentInfo.mainLocationId}) }}">{{ "ezbeer.view_it_now"|trans }}</a>
                 </div>
             </div>
         </div>
