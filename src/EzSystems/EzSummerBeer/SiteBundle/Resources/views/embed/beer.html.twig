@@ -1,0 +1,15 @@
+<div class="row">
+
+    <div class="col-md-8">
+        <div class="attribute-beer">
+            {% set contentName = ez_content_name(content) %}
+            <h2><a href="{{ path("ez_urlalias", {"locationId": content.contentInfo.mainLocationId}) }}" title="{{ contentName }}">{{ contentName }}</a></h2>
+        </div>
+    </div>
+
+    <div class="col-md-4 ">
+        <div class="thumbnail">
+            {{ ez_render_field(content, "label") }}
+        </div>
+    </div>
+</div>
