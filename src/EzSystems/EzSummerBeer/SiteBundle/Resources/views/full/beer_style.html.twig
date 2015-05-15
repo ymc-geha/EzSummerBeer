@@ -1,0 +1,55 @@
+{% extends "EzSummerBeerSiteBundle::pagelayout.html.twig" %}
+
+{% block content %}
+<section class="content-11 content-view-full content-type-beer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ ez_render_field(content, "name") }}</h1>
+            </div>
+            <div class="col-md-8">
+                <div class="attribute-description">
+                    <p>{{ ez_field_value(content, "description").text|nl2br }}</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info">
+                    <h5><span class="glyphicon glyphicon-info-sign"></span>{{ "ezbeer.beer.info"|trans({}, "beer") }}</h5>
+                    <ul>
+                        {% set abvMin = ez_field_value(content, "abv_min").value %}
+                        {% set abvMax = ez_field_value(content, "abv_max").value %}
+                        <li>{{ "ezbeer.beer.abv"|trans({}, "beer") }} {{ abvMin ~ "-" ~ abvMax ~ "%" }}</li>
+                        {% set ibuMin = ez_field_value(content, "ibu_min").value %}
+                        {% set ibuMax = ez_field_value(content, "ibu_max").value %}
+                        <li>{{ "ezbeer.beer.ibu"|trans({}, "beer") }} {{ ibuMin ~ "-" ~ ibuMax }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        {% for beerLocation in beers %}
+            {{ render_esi(controller("ez_content:viewLocation", {"locationId": beerLocation.id, "viewType": "line"})) }}
+
+            <hr>
+
+        {% endfor %}
+
+        {% if beers.haveToPaginate() %}
+        <div class="row">
+            <div class="col-md-12  text-center">
+                <div class="pagination">
+                    {# We specify the root name to ensure we use the current location's URLAlias #}
+                    {{ pagerfanta(beers, "twitter_bootstrap3_translated", {
+                        "rootName": location,
+                        "dots_message": "&nbsp;&nbsp;",
+                        "css_prev_class": "previous"
+                    }) }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+
+</section>
+{% endblock %}
