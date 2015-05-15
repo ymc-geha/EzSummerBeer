@@ -21,30 +21,8 @@
                 <div class="delimiter-big"></div>
 
                 {# Begin: Review view line #}
-                {% if false %}
-                <div class="attribute-review" itemscope itemtype="http://data-vocabulary.org/Review">
-                    <h2>Review <span itemprop="itemreviewed">Delirium Nocturnum</span> <span class="glyphicon glyphicon-heart"></span></h2>
-
-                    <div class="row">
-                        <div class="col-md-3 rating text-center margin-20">
-                            <span class="rating" itemprop="rating">4</span> /5
-                        </div>
-                        <div class="col-md-9">
-                            <p itemprop="summary">
-                                Delirium Nocturnum. With a name like that, I had high hopes for this brew… and it did not disappoint. This is a Belgian Strong Dark Ale, weighing in at 8.5% ABV.
-
-                                The beer poured deep, hazy brown with a 1½ finger head that quickly dissipated. My first whiff caught essences of flowery hops and orange. When I took my first sip,...
-                            </p>
-                            <small>
-                                Reviewed by <span itemprop="reviewer">John Doe</span> on
-                                <time itemprop="dtreviewed" datetime="2014-01-06">Jan 6 2014</time>.
-                            </small>
-                            <div class="clearfix"></div>
-                            <a href="review.html" class="btn btn-primary margin-20">Discover More</a>
-                        </div>
-                    </div>
-
-                </div>
+                {% if reviewContentInfo %}
+                    {{ render_esi(controller("ez_content:embedContent", {"contentId": reviewContentInfo.id, "viewType": "embed"})) }}
                 {% endif %}
                 {# End: Review view line #}
             </div>
@@ -62,8 +40,7 @@
                         <li>{{ "ezbeer.beer.abv"|trans({}, 'beer') }} {% if not ez_is_field_empty(content, "abv") %}{{ ez_field_value(content, "abv").value }}%{% else %}{{ "ezbeer.na"|trans }}{% endif %}</li>
                         <li>{{ "ezbeer.beer.ibu"|trans({}, 'beer') }} {% if not ez_is_field_empty(content, "ibu") %}{{ ez_field_value(content, "ibu").value }}{% else %}{{ "ezbeer.na"|trans }}{% endif %}</li>
                         <li>{{ "ezbeer.beer.organic"|trans({}, 'beer') }} {{ ez_field_value(content, "is_organic").bool ? "ezbeer.yes"|trans : "ezbeer.no"|trans }}</li>
-                        {# TODO:  #}
-                        <li>{{ "ezbeer.beer.glass_type"|trans({}, 'beer') }} {{ "ezbeer.na"|trans }}</li>
+                        <li>{{ "ezbeer.beer.glass_type"|trans({}, 'beer') }} {% if glassContentInfo %}{{ ez_content_name(glassContentInfo) }}{% else %}{{ "ezbeer.na"|trans }}{% endif %}</li>
                     </ul>
                 </div>
             </div>

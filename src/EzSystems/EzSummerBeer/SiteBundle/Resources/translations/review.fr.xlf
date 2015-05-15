@@ -14,6 +14,10 @@
                 <source>ezbeer.review.author_date</source>
                 <target><![CDATA[Testé par <span itemprop="reviewer">%author%</span> le <time itemprop="dtreviewed" datetime="%date_raw%">%date%</time>.]]></target>
             </trans-unit>
+            <trans-unit id="4">
+                <source>ezbeer.review.discover_more</source>
+                <target>En savoir plus</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
