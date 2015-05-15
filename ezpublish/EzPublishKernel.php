@@ -9,7 +9,9 @@
 
 use Egulias\ListenersDebugCommandBundle\EguliasListenersDebugCommandBundle;
 use eZ\Bundle\EzPublishCoreBundle\EzPublishCoreBundle;
+use eZ\Bundle\EzPublishLegacySearchEngineBundle\EzPublishLegacySearchEngineBundle;
 use eZ\Bundle\EzPublishDebugBundle\EzPublishDebugBundle;
+use eZ\Bundle\EzPublishIOBundle\EzPublishIOBundle;
 use eZ\Bundle\EzPublishLegacyBundle\EzPublishLegacyBundle;
 use eZ\Bundle\EzPublishRestBundle\EzPublishRestBundle;
 use EzSystems\CommentsBundle\EzSystemsCommentsBundle;
@@ -17,6 +19,10 @@ use EzSystems\DemoBundle\EzSystemsDemoBundle;
 use EzSystems\BehatBundle\EzSystemsBehatBundle;
 use eZ\Bundle\EzPublishCoreBundle\Kernel;
 use EzSystems\NgsymfonytoolsBundle\EzSystemsNgsymfonytoolsBundle;
+use EzSystems\PlatformUIBundle\EzSystemsPlatformUIBundle;
+use EzSystems\PlatformUIAssetsBundle\EzSystemsPlatformUIAssetsBundle;
+use FOS\HttpCacheBundle\FOSHttpCacheBundle;
+use Liip\ImagineBundle\LiipImagineBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
@@ -34,6 +40,10 @@ use Nelmio\CorsBundle\NelmioCorsBundle;
 use Hautelook\TemplatedUriBundle\HautelookTemplatedUriBundle;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Knp\Bundle\MenuBundle\KnpMenuBundle;
+use Oneup\FlysystemBundle\OneupFlysystemBundle;
+use Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle;
+use EzSystems\PlatformInstallerBundle\EzSystemsPlatformInstallerBundle;
+use EzSystems\PrivacyCookieBundle\EzSystemsPrivacyCookieBundle;
 
 class EzPublishKernel extends Kernel
 {
@@ -54,17 +64,28 @@ class EzPublishKernel extends Kernel
             new SwiftmailerBundle(),
             new AsseticBundle(),
             new DoctrineBundle(),
+            new SensioFrameworkExtraBundle(),
             new TedivmStashBundle(),
             new HautelookTemplatedUriBundle(),
+            new LiipImagineBundle(),
+            new FOSHttpCacheBundle(),
             new EzPublishCoreBundle(),
+            new EzPublishLegacySearchEngineBundle(),
             new EzPublishLegacyBundle( $this ),
+            new EzPublishIOBundle(),
+//            new EzSystemsDemoBundle(),
             new EzPublishRestBundle(),
             new EzSystemsCommentsBundle(),
             new EzSystemsNgsymfonytoolsBundle(),
+            new EzSystemsPlatformUIAssetsBundle(),
+            new EzSystemsPlatformUIBundle(),
             new WhiteOctoberPagerfantaBundle(),
             new WhiteOctoberBreadcrumbsBundle(),
             new NelmioCorsBundle(),
             new KnpMenuBundle(),
+            new OneupFlysystemBundle(),
+            new EzSystemsPlatformInstallerBundle(),
+            new EzSystemsPrivacyCookieBundle(),
             new EzSystems\EzSummerBeer\SiteBundle\EzSummerBeerSiteBundle(),
             new EzSystems\EzSummerBeer\ImportBundle\EzSummerBeerImportBundle(),
         );
@@ -90,6 +111,7 @@ class EzPublishKernel extends Kernel
      * Loads the container configuration
      *
      * @param LoaderInterface $loader A LoaderInterface instance
+     * @throws \RuntimeException when config file is not readable
      *
      * @api
      */

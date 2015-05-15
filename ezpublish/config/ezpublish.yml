@@ -190,7 +190,6 @@ ezpublish:
                 name: eZSESSID
 
         beer_admin:
-            legacy_mode: true
             languages:
                 - eng-GB
                 - fre-FR
@@ -200,6 +199,8 @@ ez_publish_legacy:
         beer_frontend_group:
             templating:
                 view_layout: "EzSummerBeerSiteBundle::pagelayout.html.twig"
+        beer_admin:
+            legacy_mode: true
 
 stash:
     caches:

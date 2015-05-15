@@ -15,6 +15,11 @@ eZ Publish exists in two versions; this, the community version is available unde
 the GPLv2 license, while several extended versions for enterprise & business is available
 under a more permissive business license, see [ez.no](http://ez.no/) for more info.
 
+## eZ Publish / eZ Platform
+This repository contains the eZ Publish 5 dual kernel. It integrates eZ Publish Legacy, unlike the next product generation, [eZ Platform](https://github.com/ezsystems/ezplatform). This repository is mostly maintained for backwards compatibility.
+
+eZ Platform, formerly eZ Publish 6, uses the same Symfony kernel than eZ Publish 5, but does not include the legacy application, nor the dependent libraries. eZ Platform is where the new features are added.
+
 ## Install, Upgrade and Getting started
 For installation & upgrade instructions, see [INSTALL.md](https://github.com/ezsystems/ezpublish-community/blob/master/INSTALL.md).
 
@@ -24,7 +29,11 @@ To get started with coding, see [GETTING_STARTED.md](https://github.com/ezsystem
 **eZ Publish 5** has the same requirements as [Symfony2](http://symfony.com/doc/master/reference/requirements.html),
 plus the [regular eZ Publish 4 ones](http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Installation/Normal-installation/Requirements-for-doing-a-normal-installation).
 
-Minimum PHP version is 5.3.17, but 5.5.x is recommended.
+Minimum PHP version is 5.4.4, but 5.5.x is recommended.
+
+## Issue tracker
+Submitting bugs, improvements and stories is possible on https://jira.ez.no/browse/EZP.
+If you discover a security issue, please see how to responsibly report such issues on https://doc.ez.no/Security.
 
 ## Backwards compatibility
 eZ Publish 5 is **100% data compatible** with version 4, as in the same
