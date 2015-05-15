@@ -22,6 +22,14 @@
                 <source>ezbeer.beer.info</source>
                 <target>Informations</target>
             </trans-unit>
+            <trans-unit id="6">
+                <source>ezbeer.beer.categories</source>
+                <target>Catégories de bières</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>ezbeer.beer.categories</source>
+                <target>Style de bières</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -201,6 +201,16 @@ ezpublish:
                         controller: "EzSummerBeerSiteBundle:Beer:viewBeerStyle"
                         match:
                             Identifier\ContentType: "beer_style"
+                    beer_categories:
+                        template: "EzSummerBeerSiteBundle:full:category_list.html.twig"
+                        controller: "EzSummerBeerSiteBundle:Beer:viewBeerCategories"
+                        match:
+                            Id\Location: %ez_beer.beers.root_location%
+                    beer_style_list:
+                        template: "EzSummerBeerSiteBundle:full:style_list.html.twig"
+                        controller: "EzSummerBeerSiteBundle:Beer:viewBeerCategories"
+                        match:
+                            Identifier\ContentType: "beer_category"
                 embed-inline:
                     beer_style:
                         template: "EzSummerBeerSiteBundle:embed-inline:beer_style.html.twig"
