@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>ezbeer.beer.abv</source>
+                <target>Alcool :</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>ezbeer.beer.ibu</source>
+                <target>Indice d'amertume :</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>ezbeer.beer.organic</source>
+                <target>Bio :</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>ezbeer.beer.glass_type</source>
+                <target>Type de verre :</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>ezbeer.beer.info</source>
+                <target>Informations</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
