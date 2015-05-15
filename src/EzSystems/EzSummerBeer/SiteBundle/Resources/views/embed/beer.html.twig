@@ -1,9 +1,12 @@
-<div class="row">
+<div class="row content-type-beer">
 
     <div class="col-md-8">
         <div class="attribute-beer">
             {% set contentName = ez_content_name(content) %}
             <h2><a href="{{ path("ez_urlalias", {"locationId": content.contentInfo.mainLocationId}) }}" title="{{ contentName }}">{{ contentName }}</a></h2>
+            <p>
+                {{ ez_field_value(content, "description").text|slice(0, 300) }}...
+            </p>
         </div>
     </div>
 

@@ -26,6 +26,10 @@
                 <source>ezbeer.na</source>
                 <target>N/A</target>
             </trans-unit>
+            <trans-unit id="7">
+                <source>ezbeer.author_date</source>
+                <target>Écrit par %author% le %date%</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -186,6 +186,10 @@ ezpublish:
                         template: "EzSummerBeerSiteBundle:full:beer_review.html.twig"
                         match:
                             Identifier\ContentType: "beer_review"
+                    beer_selection:
+                        template: "EzSummerBeerSiteBundle:full:beer_selection.html.twig"
+                        match:
+                            Identifier\ContentType: "beer_selection"
                 embed-inline:
                     beer_style:
                         template: "EzSummerBeerSiteBundle:embed-inline:beer_style.html.twig"
